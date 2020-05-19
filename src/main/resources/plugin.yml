@@ -1,0 +1,13 @@
+name: PGM-API
+version: ${project.version}
+main: cl.bgmp.apipgm.PGMAPI
+api-version: '1.13'
+depend: [PGM]
+authors: [BGMP]
+commands:
+  stats:
+    usage: /stats [player]
+    description: Fetches player stats to display them in chat.
+permissions:
+  pgmapi.stats:
+    default: true

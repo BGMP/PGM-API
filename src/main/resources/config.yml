@@ -1,0 +1,9 @@
+mysql:
+  host: "localhost"
+  port: 3306
+  database: "udec"
+  username: "root"
+  password: "password"
+  tables:
+    users: "users"
+    pgm: "pgm"
