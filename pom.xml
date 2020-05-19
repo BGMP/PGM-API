@@ -92,7 +92,7 @@
         </dependency>
         <dependency>
             <groupId>tc.oc</groupId>
-            <artifactId>PGM</artifactId>
+            <artifactId>core</artifactId>
             <version>0.8-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
