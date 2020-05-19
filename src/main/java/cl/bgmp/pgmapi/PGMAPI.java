@@ -1,7 +1,7 @@
-package cl.bgmp.apipgm;
+package cl.bgmp.pgmapi;
 
-import cl.bgmp.apipgm.commands.StatsCommand;
-import cl.bgmp.apipgm.listeners.PlayerEvents;
+import cl.bgmp.pgmapi.commands.StatsCommand;
+import cl.bgmp.pgmapi.listeners.PlayerEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;

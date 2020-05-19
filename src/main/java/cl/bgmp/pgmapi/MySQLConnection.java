@@ -1,4 +1,4 @@
-package cl.bgmp.apipgm;
+package cl.bgmp.pgmapi;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

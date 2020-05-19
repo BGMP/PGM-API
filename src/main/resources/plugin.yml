@@ -1,6 +1,6 @@
 name: PGM-API
 version: ${project.version}
-main: cl.bgmp.apipgm.PGMAPI
+main: cl.bgmp.pgmapi.PGMAPI
 api-version: '1.13'
 depend: [PGM]
 authors: [BGMP]

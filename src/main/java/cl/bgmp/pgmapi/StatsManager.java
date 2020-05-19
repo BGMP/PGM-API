@@ -1,4 +1,4 @@
-package cl.bgmp.apipgm;
+package cl.bgmp.pgmapi;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -70,16 +70,16 @@
 
     <repositories>
         <repository>
+            <id>bgm</id>
+            <url>https://bgmp.cl/</url>
+        </repository>
+        <repository>
             <id>destroystokyo-repo</id>
             <url>https://repo.destroystokyo.com/repository/maven-public/</url>
         </repository>
         <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>bgm</id>
-            <url>https://bgmp.cl/</url>
         </repository>
     </repositories>
 

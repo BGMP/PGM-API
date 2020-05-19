@@ -1,4 +1,4 @@
-package cl.bgmp.apipgm;
+package cl.bgmp.pgmapi;
 
 public class PGMPlayer {
   private String uuid;

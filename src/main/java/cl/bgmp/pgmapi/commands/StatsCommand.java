@@ -1,7 +1,7 @@
-package cl.bgmp.apipgm.commands;
+package cl.bgmp.pgmapi.commands;
 
-import cl.bgmp.apipgm.PGMAPI;
-import cl.bgmp.apipgm.StatsManager;
+import cl.bgmp.pgmapi.PGMAPI;
+import cl.bgmp.pgmapi.StatsManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

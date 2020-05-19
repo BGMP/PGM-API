@@ -1,4 +1,4 @@
-package cl.bgmp.apipgm;
+package cl.bgmp.pgmapi;
 
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;

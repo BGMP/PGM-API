@@ -1,8 +1,8 @@
-package cl.bgmp.apipgm.listeners;
+package cl.bgmp.pgmapi.listeners;
 
-import cl.bgmp.apipgm.MySQLConnection;
-import cl.bgmp.apipgm.PGMAPI;
-import cl.bgmp.apipgm.StatsManager;
+import cl.bgmp.pgmapi.MySQLConnection;
+import cl.bgmp.pgmapi.PGMAPI;
+import cl.bgmp.pgmapi.StatsManager;
 import java.util.Objects;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
