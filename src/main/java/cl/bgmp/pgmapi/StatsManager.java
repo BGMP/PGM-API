@@ -23,13 +23,26 @@ public class StatsManager {
     pgmPlayers.forEach(database::deployPGMPlayerStats);
   }
 
+  public void deployPGMPlayerStatistics(final PGMPlayer pgmPlayer) {
+    database.deployPGMPlayerStats(pgmPlayer);
+  }
+
   public void initPlayer(PGMPlayer pgmPlayer) {
     pgmPlayers.add(pgmPlayer);
   }
 
+  /**
+   * Unloads the player and performs a manual deploy of their stats to avoid clashes between this
+   * instance of deployment and the main mass-deploy task
+   *
+   * @param nick Nick of the player whom's in-memory statistics will be unloaded
+   */
   public void unloadPlayer(String nick) {
     final PGMPlayer toUnload = getPlayerByNick(nick);
-    if (toUnload != null) pgmPlayers.remove(toUnload);
+    if (toUnload != null) {
+      pgmPlayers.remove(toUnload);
+      deployPGMPlayerStatistics(toUnload);
+    }
   }
 
   public void addKillToPlayer(String nick) {
