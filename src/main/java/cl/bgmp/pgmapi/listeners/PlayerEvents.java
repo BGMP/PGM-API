@@ -25,7 +25,7 @@ public class PlayerEvents implements Listener {
     final String nick = player.getName();
 
     database.registerPlayer(uuid, nick);
-    statsManager.initPlayer(database.getPGMPlayer(uuid, nick));
+    statsManager.loadPlayer(database.getPGMPlayer(uuid, nick));
   }
 
   @EventHandler

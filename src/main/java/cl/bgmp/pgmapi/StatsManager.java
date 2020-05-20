@@ -27,7 +27,7 @@ public class StatsManager {
     database.deployPGMPlayerStats(pgmPlayer);
   }
 
-  public void initPlayer(PGMPlayer pgmPlayer) {
+  public void loadPlayer(PGMPlayer pgmPlayer) {
     pgmPlayers.add(pgmPlayer);
   }
 
