@@ -17,7 +17,7 @@ public final class PGMAPI extends JavaPlugin {
     return apipgm;
   }
 
-  public MySQLConnection getDatabase() {
+  public MySQLConnection getMySQLDatabase() {
     return database;
   }
 

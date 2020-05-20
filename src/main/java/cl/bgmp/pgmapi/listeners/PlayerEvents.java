@@ -17,7 +17,7 @@ public class PlayerEvents implements Listener {
 
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent event) {
-    final MySQLConnection database = PGMAPI.get().getDatabase();
+    final MySQLConnection database = PGMAPI.get().getMySQLDatabase();
     final StatsManager statsManager = PGMAPI.get().getStatsManager();
 
     final Player player = event.getPlayer();
