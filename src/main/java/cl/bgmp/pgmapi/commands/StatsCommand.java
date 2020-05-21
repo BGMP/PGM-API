@@ -2,11 +2,16 @@ package cl.bgmp.pgmapi.commands;
 
 import cl.bgmp.pgmapi.PGMAPI;
 import cl.bgmp.pgmapi.StatsManager;
-import org.bukkit.ChatColor;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
+import tc.oc.pgm.util.component.ComponentUtils;
 
 public class StatsCommand implements CommandExecutor {
 
@@ -28,8 +33,34 @@ public class StatsCommand implements CommandExecutor {
     }
 
     final StatsManager statsManager = PGMAPI.get().getStatsManager();
-    if (args.length == 1) sender.sendMessage(statsManager.buildPrettyStatsMessage(args[0]));
-    else sender.sendMessage(statsManager.buildPrettyStatsMessage(sender.getName()));
+    if (args.length == 1) {
+      final String targetNick = args[0];
+
+      final Pattern pattern = Pattern.compile("[a-zA-Z0-9]*");
+      final Matcher matcher = pattern.matcher(targetNick);
+      if (!matcher.matches()) {
+        sender.sendMessage(ChatColor.RED + "Invalid player name.");
+        return true;
+      }
+
+      if (Bukkit.getPlayer(targetNick) == null) {
+        sender.sendMessage(
+            ComponentUtils.horizontalLineHeading(
+                ChatColor.DARK_AQUA + targetNick, ChatColor.RED, ComponentUtils.MAX_CHAT_WIDTH));
+      } else {
+        sender.sendMessage(
+            ComponentUtils.horizontalLineHeading(
+                Bukkit.getPlayer(targetNick).getDisplayName(),
+                ChatColor.RED,
+                ComponentUtils.MAX_CHAT_WIDTH));
+      }
+      sender.sendMessage(statsManager.buildPrettyStatsMessage(targetNick));
+    } else {
+      sender.sendMessage(
+          ComponentUtils.horizontalLineHeading(
+              ((Player) sender).getDisplayName(), ChatColor.RED, ComponentUtils.MAX_CHAT_WIDTH));
+      sender.sendMessage(statsManager.buildPrettyStatsMessage(sender.getName()));
+    }
 
     return true;
   }

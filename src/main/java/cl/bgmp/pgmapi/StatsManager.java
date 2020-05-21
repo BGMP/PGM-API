@@ -2,7 +2,7 @@ package cl.bgmp.pgmapi;
 
 import java.util.HashSet;
 import java.util.Set;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class StatsManager {
@@ -63,47 +63,30 @@ public class StatsManager {
   public String buildPrettyStatsMessage(String nick) {
     final PGMPlayer pgmPlayer = getPlayerByNick(nick);
     if (pgmPlayer == null)
-      return ChatColor.DARK_AQUA + nick + ChatColor.RED + " is invalid or currently offline.";
+      return ChatColor.DARK_AQUA
+          + nick
+          + ChatColor.RED
+          + " is currently offline. Do not worry, though,  we will soon allow you to check on offline players's stats!";
 
-    return ChatColor.DARK_PURPLE.toString()
-        + ChatColor.BOLD
-        + ChatColor.STRIKETHROUGH
-        + "--------------"
-        + ChatColor.RED
-        + " "
-        + nick
-        + " "
-        + ChatColor.DARK_PURPLE.toString()
-        + ChatColor.BOLD
-        + ChatColor.STRIKETHROUGH
-        + "--------------"
-        + "\n"
-        + ChatColor.GOLD
+    return ChatColor.GOLD
         + "Kills: "
-        + ChatColor.GREEN
+        + ChatColor.AQUA
         + pgmPlayer.getKills()
         + "\n"
         + ChatColor.GOLD
         + "Deaths: "
-        + ChatColor.GREEN
+        + ChatColor.AQUA
         + pgmPlayer.getDeaths()
         + "\n"
         + ChatColor.GOLD
         + "KD: "
-        + ChatColor.GREEN
-        + pgmPlayer.getKd()
+        + ChatColor.AQUA
+        + String.format("%.2f", pgmPlayer.getKd())
         + "\n"
         + ChatColor.GOLD
         + "KK: "
-        + ChatColor.GREEN
-        + pgmPlayer.getKk()
-        + "\n"
-        + ChatColor.DARK_PURPLE.toString()
-        + ChatColor.BOLD
-        + ChatColor.STRIKETHROUGH
-        + "---------------"
-        + nick.replaceAll("[a-zA-Z0-9]", "-")
-        + "--------------";
+        + ChatColor.AQUA
+        + String.format("%.2f", pgmPlayer.getKk());
   }
 
   public PGMPlayer getPlayerByNick(String nick) {
