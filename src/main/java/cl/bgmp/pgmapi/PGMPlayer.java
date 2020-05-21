@@ -49,10 +49,10 @@ public class PGMPlayer {
 
   public void touchKdAndKk() {
     if (deaths == 0) this.kd = kills;
-    else this.kd = kills / deaths;
+    else this.kd = kills / (double) deaths;
 
     if (killed == 0) this.kk = kills;
-    else this.kk = kills / killed;
+    else this.kk = kills / (double) killed;
   }
 
   public void addKill() {
