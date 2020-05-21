@@ -1,4 +1,4 @@
-Network [![build](https://github.com/ElMedievo-UdeC/PGM-API/workflows/build/badge.svg)](https://github.com/ElMedievo-UdeC/PGM-API/runs/687933018)
+PGM-API [![build](https://github.com/ElMedievo-UdeC/PGM-API/workflows/build/badge.svg)](https://github.com/ElMedievo-UdeC/PGM-API/runs/687933018)
 ===
 
 API used for PGM persistent data-tracking.
