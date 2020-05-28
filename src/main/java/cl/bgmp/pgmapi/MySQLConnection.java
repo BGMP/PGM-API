@@ -62,12 +62,9 @@ public class MySQLConnection {
             connection.prepareStatement(
                 "INSERT INTO "
                     + pgmTable
-                    + " (uuid, nick, kills, deaths, killed) VALUES (?, ?, ?, ?, ?)");
+                    + " (uuid, nick, kills, deaths, killed) VALUES (?, ?, 0, 0, 0)");
         insertion.setString(1, uuid);
         insertion.setString(2, nick);
-        insertion.setInt(3, 0);
-        insertion.setInt(4, 0);
-        insertion.setInt(5, 0);
         insertion.executeUpdate();
       } catch (SQLException e) {
         e.printStackTrace();
