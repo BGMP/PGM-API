@@ -36,7 +36,12 @@ public class StatsCommand implements CommandExecutor {
     if (args.length == 1) {
       final String targetNick = args[0];
 
-      final Pattern pattern = Pattern.compile("[a-zA-Z0-9]*");
+      if (targetNick.toCharArray().length > 16) {
+        sender.sendMessage(ChatColor.RED + "Name is too long.");
+        return true;
+      }
+
+      final Pattern pattern = Pattern.compile("[A-Za-z0-9]+(_[A-Za-z0-9]+)*");
       final Matcher matcher = pattern.matcher(targetNick);
       if (!matcher.matches()) {
         sender.sendMessage(ChatColor.RED + "Invalid player name.");
