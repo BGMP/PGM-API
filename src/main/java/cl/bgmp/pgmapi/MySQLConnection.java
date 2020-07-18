@@ -62,7 +62,7 @@ public class MySQLConnection {
             connection.prepareStatement(
                 "INSERT INTO "
                     + pgmTable
-                    + " (uuid, nick, kills, deaths, killed) VALUES (?, ?, 0, 0, 0)");
+                    + " (uuid, nick, kills, deaths, killed, kd, kk, wools, monuments, cores) VALUES (?, ?, 0, 0, 0, 0.0, 0.0, 0, 0, 0)");
         insertion.setString(1, uuid);
         insertion.setString(2, nick);
         insertion.executeUpdate();
@@ -102,7 +102,16 @@ public class MySQLConnection {
       results.next();
 
       return new PGMPlayer(
-          uuid, nick, results.getInt("kills"), results.getInt("deaths"), results.getInt("killed"));
+          uuid,
+          nick,
+          results.getInt("kills"),
+          results.getInt("deaths"),
+          results.getInt("killed"),
+          results.getDouble("kd"),
+          results.getDouble("kk"),
+          results.getInt("wools"),
+          results.getInt("monuments"),
+          results.getInt("cores"));
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -113,11 +122,18 @@ public class MySQLConnection {
     try {
       PreparedStatement statement =
           connection.prepareStatement(
-              "UPDATE " + pgmTable + " SET kills = ?, deaths = ?, killed = ? WHERE uuid = ?");
+              "UPDATE "
+                  + pgmTable
+                  + " SET kills = ?, deaths = ?, killed = ?, kd = ?, kk = ?, wools = ?, monuments = ?, cores = ? WHERE uuid = ?");
       statement.setInt(1, pgmPlayer.getKills());
       statement.setInt(2, pgmPlayer.getDeaths());
       statement.setInt(3, pgmPlayer.getKilled());
-      statement.setString(4, pgmPlayer.getUUID());
+      statement.setDouble(4, pgmPlayer.getKd());
+      statement.setDouble(5, pgmPlayer.getKk());
+      statement.setInt(6, pgmPlayer.getWools());
+      statement.setInt(7, pgmPlayer.getMonuments());
+      statement.setInt(8, pgmPlayer.getCores());
+      statement.setString(9, pgmPlayer.getUUID());
       statement.executeUpdate();
     } catch (SQLException exception) {
       exception.printStackTrace();
@@ -206,7 +222,12 @@ public class MySQLConnection {
               + "nick VARCHAR (16) NOT NULL,"
               + "kills INT (11) NOT NULL,"
               + "deaths INT (11) NOT NULL, "
-              + "killed INT (11) NOT NULL)"
+              + "killed INT (11) NOT NULL,"
+              + "kd decimal (3.0) NOT NULL,"
+              + "kk decimal (3.0) NOT NULL,"
+              + "wools INT (11) NOT NULL,"
+              + "monuments INT (11) NOT NULL,"
+              + "cores INT (11) NOT NULL)"
               + "ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
       logger.info("Initialised PGM table: " + pgmTable);

@@ -60,6 +60,28 @@ public class StatsManager {
     if (pgmPlayer != null) pgmPlayer.addKilled();
   }
 
+  public void addWoolToPlayer(String nick) {
+    final PGMPlayer pgmPlayer = getPlayerByNick(nick);
+    if (pgmPlayer != null) pgmPlayer.addWool();
+  }
+
+  public void addMonumentToPlayer(String nick) {
+    final PGMPlayer pgmPlayer = getPlayerByNick(nick);
+    if (pgmPlayer != null) pgmPlayer.addMonument();
+  }
+
+  public void addCoreToPlayer(String nick) {
+    final PGMPlayer pgmPlayer = getPlayerByNick(nick);
+    if (pgmPlayer != null) pgmPlayer.addCore();
+  }
+
+  public PGMPlayer getPlayerByNick(String nick) {
+    return pgmPlayers.stream()
+        .filter(pgmPlayer -> pgmPlayer.getNick().equals(nick))
+        .findFirst()
+        .orElse(null);
+  }
+
   public String buildPrettyStatsMessage(String nick) {
     final PGMPlayer pgmPlayer = getPlayerByNick(nick);
     if (pgmPlayer == null)
@@ -87,12 +109,5 @@ public class StatsManager {
         + "KK: "
         + ChatColor.AQUA
         + String.format("%.2f", pgmPlayer.getKk());
-  }
-
-  public PGMPlayer getPlayerByNick(String nick) {
-    return pgmPlayers.stream()
-        .filter(pgmPlayer -> pgmPlayer.getNick().equals(nick))
-        .findFirst()
-        .orElse(null);
   }
 }
