@@ -108,6 +108,21 @@ public class StatsManager {
         + ChatColor.GOLD
         + "KK: "
         + ChatColor.AQUA
-        + String.format("%.2f", pgmPlayer.getKk());
+        + String.format("%.2f", pgmPlayer.getKk())
+        + "\n"
+        + ChatColor.GOLD
+        + "Wools: "
+        + ChatColor.AQUA
+        + pgmPlayer.getWools()
+        + "\n"
+        + ChatColor.GOLD
+        + "Monuments: "
+        + ChatColor.AQUA
+        + pgmPlayer.getMonuments()
+        + "\n"
+        + ChatColor.GOLD
+        + "Cores: "
+        + ChatColor.AQUA
+        + pgmPlayer.getCores();
   }
 }
