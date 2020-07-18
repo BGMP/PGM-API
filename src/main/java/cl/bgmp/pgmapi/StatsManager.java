@@ -35,7 +35,7 @@ public class StatsManager {
    * Unloads the player and performs a manual deploy of their stats to avoid clashes between this
    * instance of deployment and the main mass-deploy task
    *
-   * @param nick Nick of the player whom's in-memory statistics will be unloaded
+   * @param nick Nick of the player whose in-memory statistics will be unloaded
    */
   public void unloadPlayer(String nick) {
     final PGMPlayer toUnload = getPlayerByNick(nick);
