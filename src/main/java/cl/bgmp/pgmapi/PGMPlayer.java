@@ -85,39 +85,39 @@ public class PGMPlayer {
   }
 
   public void touchKd() {
-    if (deaths == 0) this.kd = kills;
-    else this.kd = kills / (double) deaths;
+    if (deaths == 0) kd = kills;
+    else kd = kills / (double) deaths;
   }
 
   public void touchKk() {
     if (killed == 0) this.kk = kills;
-    else this.kk = kills / (double) killed;
+    else kk = kills / (double) killed;
   }
 
   public void addKill() {
-    this.kills++;
+    kills++;
     touchKdAndKk();
   }
 
   public void addDeath() {
-    this.deaths++;
+    deaths++;
     touchKdAndKk();
   }
 
   public void addKilled() {
-    this.killed++;
+    killed++;
     touchKdAndKk();
   }
 
   public void addWool() {
-    this.wools++;
+    wools++;
   }
 
   public void addMonument() {
-    this.monuments++;
+    monuments++;
   }
 
   public void addCore() {
-    this.cores++;
+    cores++;
   }
 }

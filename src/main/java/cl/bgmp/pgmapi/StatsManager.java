@@ -32,8 +32,9 @@ public class StatsManager {
   }
 
   /**
-   * Unloads the player and performs a manual deploy of their stats to avoid clashes between this
-   * instance of deployment and the main mass-deploy task
+   * Removes the given player from the {@link StatsManager}'s list
+   * and performs a manual deploy of their stats to avoid clashes between
+   * this instance of deployment and the main mass-deploy task
    *
    * @param nick Nick of the player whose in-memory statistics will be unloaded
    */

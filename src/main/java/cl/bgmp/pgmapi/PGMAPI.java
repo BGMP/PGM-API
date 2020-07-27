@@ -2,6 +2,7 @@ package cl.bgmp.pgmapi;
 
 import cl.bgmp.pgmapi.commands.StatsCommand;
 import cl.bgmp.pgmapi.listeners.PlayerEvents;
+import cl.bgmp.pgmapi.listeners.StatsEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
@@ -9,12 +10,12 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PGMAPI extends JavaPlugin {
-  private static PGMAPI apipgm;
+  private static PGMAPI pgmAPI;
   private MySQLConnection database;
   private StatsManager statsManager;
 
   public static PGMAPI get() {
-    return apipgm;
+    return pgmAPI;
   }
 
   public MySQLConnection getMySQLDatabase() {
@@ -27,14 +28,14 @@ public final class PGMAPI extends JavaPlugin {
 
   @Override
   public void onEnable() {
-    apipgm = this;
+    pgmAPI = this;
     loadConfiguration();
 
     database = new MySQLConnection(this.getLogger());
     statsManager = new StatsManager(database);
 
     registerCommands();
-    registerEvents(new PlayerEvents());
+    registerEvents(new PlayerEvents(), new StatsEvents());
   }
 
   @Override
