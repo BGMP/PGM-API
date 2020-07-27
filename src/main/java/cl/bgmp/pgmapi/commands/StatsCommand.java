@@ -11,7 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-import tc.oc.pgm.util.component.ComponentUtils;
+import tc.oc.pgm.util.LegacyFormatUtils;
 
 public class StatsCommand implements CommandExecutor {
 
@@ -50,20 +50,20 @@ public class StatsCommand implements CommandExecutor {
 
       if (Bukkit.getPlayer(targetNick) == null) {
         sender.sendMessage(
-            ComponentUtils.horizontalLineHeading(
-                ChatColor.DARK_AQUA + targetNick, ChatColor.RED, ComponentUtils.MAX_CHAT_WIDTH));
+            LegacyFormatUtils.horizontalLineHeading(
+                ChatColor.DARK_AQUA + targetNick, ChatColor.RED, LegacyFormatUtils.MAX_CHAT_WIDTH));
       } else {
         sender.sendMessage(
-            ComponentUtils.horizontalLineHeading(
+            LegacyFormatUtils.horizontalLineHeading(
                 Bukkit.getPlayer(targetNick).getDisplayName(),
                 ChatColor.RED,
-                ComponentUtils.MAX_CHAT_WIDTH));
+                LegacyFormatUtils.MAX_CHAT_WIDTH));
       }
       sender.sendMessage(statsManager.buildPrettyStatsMessage(targetNick));
     } else {
       sender.sendMessage(
-          ComponentUtils.horizontalLineHeading(
-              ((Player) sender).getDisplayName(), ChatColor.RED, ComponentUtils.MAX_CHAT_WIDTH));
+          LegacyFormatUtils.horizontalLineHeading(
+              ((Player) sender).getDisplayName(), ChatColor.RED, LegacyFormatUtils.MAX_CHAT_WIDTH));
       sender.sendMessage(statsManager.buildPrettyStatsMessage(sender.getName()));
     }
 
