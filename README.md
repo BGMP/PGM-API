@@ -1,4 +1,11 @@
-PGM-API [![build](https://github.com/ElMedievo-UdeC/PGM-API/workflows/build/badge.svg)](https://github.com/ElMedievo-UdeC/PGM-API/runs/687933018)
+Note
+===
+
+This project is heavily outdated. I have decided to open-source it as a favour for anybody looking for persistent
+PGM stats-tracking. It is also to note that the project is also experimental and may not suit your needs, as it was
+meant to work within a specific environment. Needless to say, I will not maintain this in time.
+
+PGM-API
 ===
 
 API used for PGM persistent data-tracking.
