@@ -168,7 +168,7 @@ public class MySQLConnection {
 
   /**
    * Performs a search within one column of a given table, returning whether or not the value
-   * provided could be found at it or not
+   * provided could be found at it
    *
    * @param table The table in which the search will be performed at
    * @param column The table's column in which the search will take place at

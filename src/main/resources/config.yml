@@ -1,7 +1,7 @@
 mysql:
   host: "localhost"
   port: 3306
-  database: "udec"
+  database: "pgm"
   username: "root"
   password: "password"
   tables:

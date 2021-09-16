@@ -6,8 +6,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 public final class Config {
 
   private static Configuration getConfig() {
-    PGMAPI apipgm = PGMAPI.get();
-    if (apipgm != null) return apipgm.getConfig();
+    PGMAPI pgmAPI = PGMAPI.get();
+    if (pgmAPI != null) return pgmAPI.getConfig();
     else return new YamlConfiguration();
   }
 
